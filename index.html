@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lumen: a quiet place to pray</title>
-<meta name="description" content="Lumen is a free prayer app. Share what&#x27;s on your heart and pray for people near and far.">
-<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lumen: a spiritual community</title>
+<meta name="description" content="Lumen is a free spiritual community. Share what's on your heart, stand with others in prayer, and belong to a circle of people who care.">
+<meta name="theme-color" content="#0B1026">
+<meta property="og:title" content="Lumen: a spiritual community">
+<meta property="og:description" content="Faith is better together. A free spiritual community with no ads, no followers and no likes.">
+<meta property="og:image" content="https://tsang120898-cyber.github.io/lumen-site/img/today.jpg">
+<meta property="og:type" content="website">
+<meta name="color-scheme" content="dark light">
 <style>
 :root{--bg:#F7F3EA;--fg:#1E2233;--muted:#5C6178;--accent:#3D52D5;--card:#FFFFFF;--line:#E3DDCF;--hero:#0B1026;--herofg:#F3F0E8;--gold:#FFD166}
 @media(prefers-color-scheme:dark){:root{--bg:#0B1026;--fg:#ECE9F2;--muted:#A9AEC9;--accent:#FFD166;--card:#151B3A;--line:#2A3266;--hero:#0B1026;--herofg:#F3F0E8;--gold:#FFD166}}
@@ -35,30 +40,185 @@ code{background:var(--card);border:1px solid var(--line);border-radius:5px;paddi
 footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:14px}
 footer a{color:var(--muted);margin-right:16px}
 .meta{color:var(--muted);font-size:15px}
+
+:root{--ink:#0B1026;--ink2:#151B3A;--gold:#FFD166;--cream:#F7F3EA;--paper:#FBF8F1;--txt:#F3F0E8;--mut:#A9AEC9}
+html{scroll-behavior:smooth}
+body.home{background:var(--ink);color:var(--txt);margin:0}
+body.home header.site{position:fixed;top:0;left:0;right:0;z-index:50;border:0;background:rgba(11,16,38,.62);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px)}
+body.home header.site .wrap{max-width:1040px}
+body.home .brand{color:var(--txt)}
+body.home nav a{color:#C9CDE6}
+body.home nav a:hover{color:#fff}
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--gold);z-index:60}
+.w{max-width:1040px;margin:0 auto;padding:0 22px}
+.eyebrow{font:600 14px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
+.big{font:600 clamp(38px,6.4vw,76px)/1.04 "Iowan Old Style","Palatino Linotype",Georgia,serif;letter-spacing:-.02em;margin:0}
+.big em{font-style:normal;background:linear-gradient(100deg,#FFD166 10%,#FF9F7A 55%,#F4A9C4 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(18px,2.2vw,23px);line-height:1.5;color:var(--mut);max-width:34em;margin:22px 0 0}
+
+/* hero */
+.hero2{position:relative;text-align:center;padding:150px 0 0;overflow:hidden;background:radial-gradient(90% 60% at 50% 0,#1E2A63 0,rgba(11,16,38,0) 70%),var(--ink)}
+.hero2 .lead{margin-left:auto;margin-right:auto}
+.hero2 .cta{margin-top:34px}
+.pill2{display:inline-block;padding:13px 26px;border-radius:999px;background:var(--gold);color:#0B1026;font-weight:700;text-decoration:none;font-size:17px}
+.pill2.ghost{background:transparent;color:var(--txt);border:1px solid #3B4478}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+@media(max-width:520px){.cta .pill2{width:100%;max-width:300px;text-align:center;box-sizing:border-box}}
+.hero2 .stage{position:relative;height:clamp(360px,52vw,560px);margin-top:56px;overflow:hidden}
+.hero2 .stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(to bottom,rgba(11,16,38,0),var(--ink))}
+.hero2 .glow{position:absolute;left:50%;top:6%;width:min(720px,110vw);aspect-ratio:1;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,209,102,.28),rgba(255,209,102,0));filter:blur(8px)}
+
+/* phone */
+.phone{--w:300px;position:relative;width:var(--w);margin:0 auto;border-radius:calc(var(--w)*.15);padding:calc(var(--w)*.034);background:linear-gradient(145deg,#3a3d4d,#12131a 40%,#2a2c38);box-shadow:0 0 0 1px rgba(255,255,255,.14) inset,0 40px 90px -20px rgba(0,0,0,.65),0 12px 30px -10px rgba(0,0,0,.5)}
+.phone img{display:block;width:100%;height:auto;border-radius:calc(var(--w)*.118);background:#000}
+.hero2 .phone{position:absolute;left:50%;top:0;margin-left:calc(var(--w)/-2);--w:min(320px,68vw)}
+
+/* feature sections */
+.feat{position:relative;padding:clamp(80px,12vw,150px) 0}
+.feat.dark{background:var(--ink)}
+.feat.mid{background:var(--ink2)}
+.feat.light{background:var(--cream);color:#1E2233}
+.feat.light .lead{color:#5C6178}
+.feat.light .eyebrow{color:#A4442A}
+.feat.light .big em{background:linear-gradient(100deg,#A4442A,#D9744B);-webkit-background-clip:text;background-clip:text}
+.split{display:grid;gap:56px;align-items:center}
+@media(min-width:860px){.split{grid-template-columns:1.05fr .95fr;gap:80px}.split.flip>.txt{order:2}}
+.txt{max-width:520px}
+.pics{display:flex;justify-content:center;gap:0}
+.pics.duo .phone{--w:min(230px,42vw)}
+.pics.duo .phone+.phone{margin-left:calc(var(--w)*-.18);margin-top:70px}
+.trio{display:flex;justify-content:center;gap:clamp(12px,3vw,34px);margin-top:70px}
+.trio .phone{--w:min(250px,29vw);margin:0}
+.trio .phone:nth-child(2){margin-top:60px}
+.center{text-align:center}.center .lead{margin-left:auto;margin-right:auto}
+
+/* three plain statements */
+.three{display:grid;gap:26px;margin-top:56px}
+@media(min-width:820px){.three{grid-template-columns:repeat(3,1fr)}}
+.st{padding:28px 26px;border-radius:24px;background:linear-gradient(160deg,#1a2148,#121838);border:1px solid #262f63}
+.st h3{margin:0 0 8px;font:600 22px/1.25 "Iowan Old Style",Georgia,serif;color:#fff}
+.st p{margin:0;color:var(--mut);font-size:17px;line-height:1.55}
+
+/* safe cards */
+.cards{display:grid;gap:14px;margin-top:52px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.cd{padding:24px;border-radius:22px;background:#fff;border:1px solid #E7E0D0;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.cd b{display:block;font:600 19px/1.3 "Iowan Old Style",Georgia,serif;margin-bottom:6px;color:#1E2233}
+.cd span{color:#5C6178;font-size:16px;line-height:1.5}
+.ico{width:38px;height:38px;border-radius:11px;background:#F1E6D0;display:grid;place-items:center;font-size:20px;margin-bottom:14px}
+
+/* final */
+.final{background:radial-gradient(80% 90% at 50% 100%,#1E2A63 0,rgba(11,16,38,0) 70%),var(--ink);text-align:center;padding:clamp(90px,13vw,170px) 0}
+.final .big{max-width:14em;margin:0 auto}
+body.home footer{background:var(--ink);border-color:#20285a;color:#8E94B5}
+body.home footer a{color:#B9BEDB}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.rv.pop{transform:translateY(60px) scale(.94)}
+.rv.pop.in{transform:none}
+.par{will-change:transform;transform:translate3d(0,var(--py,0px),0)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv,.rv.pop{opacity:1;transform:none;transition:none}.par{transform:none!important}.progress{display:none}}
 </style>
 </head>
-<body>
+<body class="home">
+<div class="progress" aria-hidden="true"></div>
 <header class="site"><div class="wrap"><a class="brand" href="index.html">Lumen<span>.</span></a><nav><a href="index.html">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></div></header>
+<main style="padding:0">
 
-<section class="hero"><div class="wrap">
-<h1>A quiet place to pray for people near and far.</h1>
-<p>Lumen is a free prayer app. Share what's on your heart and see it land on a globe, or pray for a stranger, a friend, or a small group. No ads, no followers, no likes.</p>
-<a class="pill off" href="support.html">Coming soon to the App Store</a>
+<section class="hero2">
+  <div class="w">
+    <p class="eyebrow rv">Lumen &middot; a spiritual community</p>
+    <h1 class="big rv" style="--d:.08s">Faith is better <em>together.</em></h1>
+    <p class="lead rv" style="--d:.16s">Lumen is a community for people of faith. Share what's on your heart, stand with others in prayer, and belong to something bigger. Free, with no ads, no followers and no likes.</p>
+    <div class="cta rv" style="--d:.24s"><a class="pill2" href="#globe">Take a look inside</a><a class="pill2 ghost" href="support.html">Coming soon to the App Store</a></div>
+  </div>
+  <div class="stage"><div class="glow"></div><div class="phone rv pop"><img src="img/today.jpg" width="780" height="1696" alt="Lumen&#x27;s Today screen: one shared moment for the whole community, with a button to say you prayed." decoding="async" fetchpriority="high"></div></div>
+</section>
+<section class="feat mid" id="globe"><div class="w split">
+  <div class="txt"><p class="eyebrow rv">A community without borders</p><h2 class="big rv" style="--d:.06s">Every light is <em>someone here with you.</em></h2>
+  <p class="lead rv" style="--d:.12s">A living map of the community, by place only and never with a name. Tap a glow to see what someone is carrying, and stand with them.</p></div>
+  <div class="pics"><div class="par" data-speed="0.05"><div class="phone rv pop"><img src="img/globe.jpg" width="780" height="1696" alt="The Lumen globe, glowing with the community over Europe and Africa." decoding="async" loading="lazy"></div></div></div>
 </div></section>
-
-<main><div class="wrap">
-
-<h2>How it works</h2>
-<div class="grid">
-<div class="card"><h3>Pray for the world</h3><p>Prayers appear on a globe by place only, never with a name. Tap one, or let Lumen bring you a few that need someone.</p></div>
-<div class="card"><h3>One prayer a day</h3><p>Everyone sees the same prayer each day, and you can see how many people are praying for it with you.</p></div>
-<div class="card"><h3>Pray with people you know</h3><p>Add friends by code or QR and make groups for prayers that stay among you.</p></div>
-<div class="card"><h3>Hear when it's answered</h3><p>When someone marks a prayer answered, everyone who prayed for it is told. Never who they are, never what it said.</p></div>
-</div>
-<h2>Safe by design</h2>
-<p>Every prayer is checked before it appears, and anything sensitive is reviewed by a person. You can report or block anyone, edit or delete what you post, and delete your account entirely, all inside the app. Read the <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Use</a>.</p>
-
-</div></main>
+<section class="feat light" id="today"><div class="w split flip">
+  <div class="txt"><p class="eyebrow rv">Today</p><h2 class="big rv" style="--d:.06s">One moment, <em>shared by everyone.</em></h2>
+  <p class="lead rv" style="--d:.12s">Each day the whole community turns toward the same prayer, and you can see how many are with you. It takes a minute, and it matters.</p></div>
+  <div class="pics"><div class="par" data-speed="0.05"><div class="phone rv pop"><img src="img/dawn.jpg" width="780" height="1696" alt="Lumen&#x27;s Today screen in the warm Dawn theme." decoding="async" loading="lazy"></div></div></div>
+</div></section>
+<section class="feat dark" id="more"><div class="w split">
+  <div class="txt"><p class="eyebrow rv">Show up for others</p><h2 class="big rv" style="--d:.06s">A little at a time, <em>when you can.</em></h2>
+  <p class="lead rv" style="--d:.12s">Have another minute? Lumen brings you five people who could use a friend in prayer, one at a time. Nothing to scroll, nothing to catch up on.</p></div>
+  <div class="pics duo"><div class="par" data-speed="0.04"><div class="phone rv pop"><img src="img/session.jpg" width="780" height="1696" alt="The pray-through: one prayer at a time with a progress bar." decoding="async" loading="lazy"></div></div><div class="par" data-speed="0.09"><div class="phone rv pop"><img src="img/list.jpg" width="780" height="1696" alt="The list of prayers that need someone." decoding="async" loading="lazy"></div></div></div>
+</div></section>
+<section class="feat mid" id="people"><div class="w">
+  <div class="center"><p class="eyebrow rv">Community</p><h2 class="big rv" style="--d:.06s">Your people, <em>your circle.</em></h2>
+  <p class="lead rv" style="--d:.12s">Some things are for the whole community. Some are only for the people closest to you.</p></div>
+  <div class="three">
+    <div class="st rv" style="--d:.05s"><h3>Friends and groups</h3><p>Add friends by code or QR, then make a group for your small group, your family or your church. What you share there stays there.</p></div>
+    <div class="st rv" style="--d:.15s"><h3>Hear when it's answered</h3><p>When someone marks a prayer answered, everyone who prayed for it is told. Never who they are, and never what it said.</p></div>
+    <div class="st rv" style="--d:.25s"><h3>Your week, not a streak</h3><p>A gentle row of dots shows the days you prayed. No streaks to protect, no guilt if you miss one.</p></div>
+  </div>
+</div></section>
+<section class="feat light" id="themes"><div class="w center">
+  <p class="eyebrow rv">Themes</p><h2 class="big rv" style="--d:.06s">Make it <em>yours.</em></h2>
+  <p class="lead rv" style="--d:.12s">Six themes, from bright and crisp to candlelit. Each one changes the colors, the type and the shape of everything.</p>
+  <div class="trio">
+    <div class="par" data-speed="0.03"><div class="phone rv pop"><img src="img/dawn.jpg" width="780" height="1696" alt="Dawn theme." decoding="async" loading="lazy"></div></div>
+    <div class="par" data-speed="0.07"><div class="phone rv pop"><img src="img/evergreen.jpg" width="780" height="1696" alt="Evergreen theme." decoding="async" loading="lazy"></div></div>
+    <div class="par" data-speed="0.03"><div class="phone rv pop"><img src="img/twilight.jpg" width="780" height="1696" alt="Twilight theme." decoding="async" loading="lazy"></div></div>
+  </div>
+</div></section>
+<section class="feat light" id="safe" style="background:var(--paper)"><div class="w">
+  <div class="center"><p class="eyebrow rv">Safe by design</p><h2 class="big rv" style="--d:.06s">A gentle place <em>to belong.</em></h2>
+  <p class="lead rv" style="--d:.12s">People share vulnerable things here, so safety isn't an afterthought.</p></div>
+  <div class="cards">
+    <div class="cd rv" style="--d:.03s"><div class="ico">&#x1F50D;</div><b>Checked before it appears</b><span>Every prayer is screened automatically, and anything sensitive is reviewed by a person.</span></div>
+    <div class="cd rv" style="--d:.09s"><div class="ico">&#x1F6E1;&#xFE0F;</div><b>Report and block</b><span>Every prayer has both, and blocking hides someone immediately without telling them.</span></div>
+    <div class="cd rv" style="--d:.15s"><div class="ico">&#x1F464;</div><b>Anonymous on the globe</b><span>Public prayers never carry a name, and only your general region is ever shown.</span></div>
+    <div class="cd rv" style="--d:.21s"><div class="ico">&#x270F;&#xFE0F;</div><b>Yours to change</b><span>Edit or delete anything you post, any time. Prayers also fade after 30 days.</span></div>
+    <div class="cd rv" style="--d:.27s"><div class="ico">&#x1F5D1;&#xFE0F;</div><b>Delete your account</b><span>One tap inside the app removes your account and everything you posted.</span></div>
+    <div class="cd rv" style="--d:.33s"><div class="ico">&#x1F54A;&#xFE0F;</div><b>No ads. No tracking.</b><span>Lumen is free and non-commercial, with no analytics and no advertising.</span></div>
+  </div>
+  <p class="center rv" style="margin-top:34px;color:#5C6178;font-size:16px">Read the <a href="privacy.html" style="color:#A4442A">Privacy Policy</a> and <a href="terms.html" style="color:#A4442A">Terms of Use</a>.</p>
+</div></section>
+<section class="final"><div class="w">
+  <h2 class="big rv">You belong <em>here.</em></h2>
+  <p class="lead rv" style="--d:.1s;margin-left:auto;margin-right:auto">Lumen is a spiritual community, and it's coming soon to the App Store.</p>
+  <div class="cta rv" style="--d:.2s;margin-top:32px"><a class="pill2" href="support.html">Get in touch</a><a class="pill2 ghost" href="privacy.html">Privacy</a></div>
+</div></section>
+</main>
 <footer><div class="wrap"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="support.html">Support</a><br><br>Lumen is a free, non-commercial app. Contact: <a href="mailto:lumentheapp@gmail.com">lumentheapp@gmail.com</a></div></footer>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in')}); }
+  else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{threshold:.14, rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  }
+  if (reduce) return;
+  var pars = [].slice.call(document.querySelectorAll('.par'));
+  var bar = document.querySelector('.progress');
+  var ticking = false;
+  function frame(){
+    ticking = false;
+    var vh = window.innerHeight, y = window.scrollY, max = document.documentElement.scrollHeight - vh;
+    if (bar) bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+    pars.forEach(function(el){
+      var r = el.parentNode.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      var off = (r.top + r.height / 2 - vh / 2) * parseFloat(el.getAttribute('data-speed') || '0.06');
+      el.style.setProperty('--py', off.toFixed(1) + 'px');
+    });
+  }
+  function req(){ if(!ticking){ ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', req, {passive:true});
+  window.addEventListener('resize', req);
+  frame();
+})();
+</script>
 </body>
 </html>
