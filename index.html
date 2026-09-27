@@ -119,6 +119,20 @@ body.home nav a:hover{color:#fff}
 body.home footer{background:var(--ink);border-color:#20285a;color:#8E94B5}
 body.home footer a{color:#B9BEDB}
 
+/* notify-me form */
+.notify{margin:30px auto 0;max-width:460px}
+.notify form{display:flex;gap:8px;padding:6px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid #3B4478}
+.notify input[type=email]{flex:1;min-width:0;border:0;background:transparent;color:var(--txt);font:inherit;font-size:17px;padding:10px 14px;outline:none}
+.notify input[type=email]::placeholder{color:#8E94B5}
+.notify button{border:0;border-radius:999px;background:var(--gold);color:#0B1026;font:inherit;font-weight:700;font-size:16px;padding:11px 20px;cursor:pointer;white-space:nowrap}
+.notify button[disabled]{opacity:.6;cursor:default}
+.notify .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.notify .msg{min-height:1.5em;margin:12px 0 0;font-size:15px;color:var(--mut)}
+.notify .msg.ok{color:var(--gold)}.notify .msg.err{color:#F4A9C4}
+.notify .fine{margin:6px 0 0;font-size:13px;color:#7F86A8}
+.notify .fine a{color:#B9BEDB}
+@media(max-width:520px){.notify form{flex-direction:column;border-radius:22px;padding:8px}.notify button{width:100%;padding:13px}}
+
 /* reveal on scroll */
 .rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
 .rv.in{opacity:1;transform:none}
@@ -138,7 +152,16 @@ body.home footer a{color:#B9BEDB}
     <p class="eyebrow rv">Lumen &middot; For the Far Away</p>
     <h1 class="big rv" style="--d:.08s">Faith is better <em>together.</em></h1>
     <p class="lead rv" style="--d:.16s">Lumen is a spiritual community for people of faith. Share what's on your heart, stand with others in prayer, and belong to something bigger. Free, with no ads, no followers and no likes.</p>
-    <div class="cta rv" style="--d:.24s"><a class="pill2" href="#globe">Take a look inside</a><a class="pill2 ghost" href="support.html">Coming soon to the App Store</a></div>
+    <div class="notify rv" id="notify" style="--d:.24s">
+  <form data-notify action="https://wwujohppovczuuilzxqe.supabase.co/functions/v1/join-waitlist" method="post" novalidate>
+    <label class="hp" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="Your email" aria-label="Your email">
+    <button type="submit">Notify me at launch</button>
+  </form>
+  <p class="msg" role="status" aria-live="polite"></p>
+  <p class="fine">One email when Lumen is on the App Store. No spam, unsubscribe any time. <a href="privacy.html#launch-list">Privacy</a></p>
+</div>
+    <div class="cta rv" style="--d:.3s;margin-top:18px"><a class="pill2 ghost" href="#globe">Take a look inside</a></div>
   </div>
   <div class="stage"><div class="glow"></div><div class="phone rv pop"><img src="img/today.jpg" width="780" height="1696" alt="Lumen&#x27;s Today screen: one shared moment for the whole community, with a button to say you prayed." decoding="async" fetchpriority="high"></div></div>
 </section>
@@ -191,8 +214,17 @@ body.home footer a{color:#B9BEDB}
 <section class="final" style="--prev:#FBF8F1"><div class="w">
   <p class="eyebrow rv">For the Far Away</p>
   <h2 class="big rv" style="--d:.06s">You belong <em>here.</em></h2>
-  <p class="lead rv" style="--d:.1s;margin-left:auto;margin-right:auto">Lumen is a spiritual community, and it's coming soon to the App Store.</p>
-  <div class="cta rv" style="--d:.2s;margin-top:32px"><a class="pill2" href="support.html">Get in touch</a><a class="pill2 ghost" href="privacy.html">Privacy</a></div>
+  <p class="lead rv" style="--d:.1s;margin-left:auto;margin-right:auto">Lumen is a spiritual community, and it's coming soon to the App Store. Leave your email and we'll tell you the day it's live.</p>
+  <div class="notify rv" id="notify-end" style="--d:.24s">
+  <form data-notify action="https://wwujohppovczuuilzxqe.supabase.co/functions/v1/join-waitlist" method="post" novalidate>
+    <label class="hp" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="Your email" aria-label="Your email">
+    <button type="submit">Notify me at launch</button>
+  </form>
+  <p class="msg" role="status" aria-live="polite"></p>
+  <p class="fine">One email when Lumen is on the App Store. No spam, unsubscribe any time. <a href="privacy.html#launch-list">Privacy</a></p>
+</div>
+  <div class="cta rv" style="--d:.3s;margin-top:22px"><a class="pill2 ghost" href="support.html">Get in touch</a></div>
 </div></section>
 </main>
 <footer><div class="wrap"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="support.html">Support</a><br><br><strong style="color:#D9DCEE">Lumen &mdash; For the Far Away.</strong><br>Lumen is a free, non-commercial spiritual community. Contact: <a href="mailto:lumentheapp@gmail.com">lumentheapp@gmail.com</a></div></footer>
@@ -226,6 +258,27 @@ body.home footer a{color:#B9BEDB}
   window.addEventListener('scroll', req, {passive:true});
   window.addEventListener('resize', req);
   frame();
+})();
+
+(function(){
+  document.querySelectorAll('form[data-notify]').forEach(function(f){
+    var msg = f.parentNode.querySelector('.msg'), btn = f.querySelector('button'), input = f.querySelector('input[type=email]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = input.value.trim();
+      if (!email) { input.focus(); return; }
+      btn.disabled = true; msg.className = 'msg'; msg.textContent = 'Adding you…';
+      fetch(f.action, {method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({email: email, website: f.querySelector('[name=website]').value})})
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return {ok:r.ok, j:j}; }); })
+      .then(function(res){
+        if (res.ok) { f.style.display = 'none'; msg.className = 'msg ok'; msg.textContent = "You're on the list. We'll email you once, the day Lumen is on the App Store."; }
+        else { btn.disabled = false; msg.className = 'msg err';
+          msg.textContent = res.j.error === 'invalid_email' ? 'That email doesn’t look right. Mind checking it?' : 'Something went wrong. Please try again in a minute.'; }
+      })
+      .catch(function(){ btn.disabled = false; msg.className = 'msg err'; msg.textContent = 'Something went wrong. Please try again in a minute.'; });
+    });
+  });
 })();
 </script>
 </body>
