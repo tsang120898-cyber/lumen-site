@@ -17,8 +17,11 @@ header.site{border-bottom:1px solid var(--line)}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
 .brand{font:600 22px/1 "Iowan Old Style",Georgia,serif;color:var(--fg);text-decoration:none;letter-spacing:.2px}
 .brand span{color:var(--gold)}
-nav a{margin-left:18px;font-size:15px;text-decoration:none;color:var(--muted)}
+nav a{display:inline-block;margin-left:6px;padding:13px 6px;font-size:15px;line-height:18px;text-decoration:none;color:var(--muted);transition:color .2s}
 nav a:hover{color:var(--fg)}
+/* On narrow phones the Lumen. wordmark is the home link, so drop the extra Home item to keep every tap target 44px tall */
+@media(max-width:420px){nav a[href="index.html"]{display:none}nav a{margin-left:0}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 main{padding:36px 0 64px}
 h1,h2,h3{font-family:"Iowan Old Style",Georgia,serif;line-height:1.25}
 h1{font-size:34px;margin:0 0 6px}h2{font-size:23px;margin:2.1em 0 .4em}h3{font-size:19px}
@@ -28,7 +31,8 @@ code{background:var(--card);border:1px solid var(--line);border-radius:5px;paddi
 .hero h1{font-size:44px;color:var(--herofg)}
 .hero p{color:#C9CDE6;font-size:19px;max-width:34em}
 .pill{display:inline-block;margin-top:18px;padding:12px 22px;border-radius:999px;background:var(--gold);color:#0B1026;font-weight:700;text-decoration:none}
-.pill.off{background:transparent;border:1px solid #3B4478;color:#C9CDE6;font-weight:600}
+.pill.off{background:transparent;border:1px solid #6670A8;color:#C9CDE6;font-weight:600}
+.pill{transition:filter .2s,background-color .2s}.pill:hover{filter:brightness(1.06)}.pill.off:hover{background:rgba(255,255,255,.06)}
 .grid{display:grid;gap:14px;margin:26px 0 8px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
 .card h3{margin:0 0 4px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:16px}

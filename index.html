@@ -22,8 +22,11 @@ header.site{border-bottom:1px solid var(--line)}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
 .brand{font:600 22px/1 "Iowan Old Style",Georgia,serif;color:var(--fg);text-decoration:none;letter-spacing:.2px}
 .brand span{color:var(--gold)}
-nav a{margin-left:18px;font-size:15px;text-decoration:none;color:var(--muted)}
+nav a{display:inline-block;margin-left:6px;padding:13px 6px;font-size:15px;line-height:18px;text-decoration:none;color:var(--muted);transition:color .2s}
 nav a:hover{color:var(--fg)}
+/* On narrow phones the Lumen. wordmark is the home link, so drop the extra Home item to keep every tap target 44px tall */
+@media(max-width:420px){nav a[href="index.html"]{display:none}nav a{margin-left:0}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 main{padding:36px 0 64px}
 h1,h2,h3{font-family:"Iowan Old Style",Georgia,serif;line-height:1.25}
 h1{font-size:34px;margin:0 0 6px}h2{font-size:23px;margin:2.1em 0 .4em}h3{font-size:19px}
@@ -33,7 +36,8 @@ code{background:var(--card);border:1px solid var(--line);border-radius:5px;paddi
 .hero h1{font-size:44px;color:var(--herofg)}
 .hero p{color:#C9CDE6;font-size:19px;max-width:34em}
 .pill{display:inline-block;margin-top:18px;padding:12px 22px;border-radius:999px;background:var(--gold);color:#0B1026;font-weight:700;text-decoration:none}
-.pill.off{background:transparent;border:1px solid #3B4478;color:#C9CDE6;font-weight:600}
+.pill.off{background:transparent;border:1px solid #6670A8;color:#C9CDE6;font-weight:600}
+.pill{transition:filter .2s,background-color .2s}.pill:hover{filter:brightness(1.06)}.pill.off:hover{background:rgba(255,255,255,.06)}
 .grid{display:grid;gap:14px;margin:26px 0 8px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
 .card h3{margin:0 0 4px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:16px}
@@ -61,7 +65,11 @@ body.home nav a:hover{color:#fff}
 .hero2 .lead{margin-left:auto;margin-right:auto}
 .hero2 .cta{margin-top:34px}
 .pill2{display:inline-block;padding:13px 26px;border-radius:999px;background:var(--gold);color:#0B1026;font-weight:700;text-decoration:none;font-size:17px}
-.pill2.ghost{background:transparent;color:var(--txt);border:1px solid #3B4478}
+.pill2.ghost{background:transparent;color:var(--txt);border:1px solid #6670A8}
+.pill2{transition:transform .2s,background-color .2s,border-color .2s}
+.pill2:hover{transform:translateY(-1px)}.pill2.ghost:hover{background:rgba(255,255,255,.06);border-color:#A9AEC9}
+body.home :focus-visible{outline-color:var(--gold)}
+.feat.light :focus-visible{outline-color:#A4442A}
 .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 @media(max-width:520px){.cta .pill2{width:100%;max-width:300px;text-align:center;box-sizing:border-box}}
 .hero2 .stage{position:relative;height:clamp(360px,52vw,560px);margin-top:56px;overflow:hidden}
@@ -111,7 +119,7 @@ body.home nav a:hover{color:#fff}
 .cd{padding:24px;border-radius:22px;background:#fff;border:1px solid #E7E0D0;box-shadow:0 1px 2px rgba(0,0,0,.03)}
 .cd b{display:block;font:600 19px/1.3 "Iowan Old Style",Georgia,serif;margin-bottom:6px;color:#1E2233}
 .cd span{color:#5C6178;font-size:16px;line-height:1.5}
-.ico{width:38px;height:38px;border-radius:11px;background:#F1E6D0;display:grid;place-items:center;font-size:20px;margin-bottom:14px}
+.ico{width:38px;height:38px;border-radius:11px;background:#F1E6D0;color:#A4442A;display:grid;place-items:center;margin-bottom:14px}
 
 /* final */
 .final{--bg:#0B1026;background:radial-gradient(80% 90% at 50% 100%,#1E2A63 0,rgba(11,16,38,0) 70%),#0B1026;text-align:center;padding:calc(var(--pad)*1.5) 0 calc(var(--pad)*1.2)}
@@ -121,10 +129,13 @@ body.home footer a{color:#B9BEDB}
 
 /* notify-me form */
 .notify{margin:30px auto 0;max-width:460px}
-.notify form{display:flex;gap:8px;padding:6px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid #3B4478}
+.notify form{display:flex;gap:8px;padding:6px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid #6670A8;transition:border-color .2s,box-shadow .2s}
+/* the email input drops its own outline, so the whole pill shows focus instead */
+.notify form:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(255,209,102,.22)}
 .notify input[type=email]{flex:1;min-width:0;border:0;background:transparent;color:var(--txt);font:inherit;font-size:17px;padding:10px 14px;outline:none}
 .notify input[type=email]::placeholder{color:#8E94B5}
 .notify button{border:0;border-radius:999px;background:var(--gold);color:#0B1026;font:inherit;font-weight:700;font-size:16px;padding:11px 20px;cursor:pointer;white-space:nowrap}
+.notify button{transition:background-color .2s}.notify button:hover:not([disabled]){background:#FFDB85}
 .notify button[disabled]{opacity:.6;cursor:default}
 .notify .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .notify .msg{min-height:1.5em;margin:12px 0 0;font-size:15px;color:var(--mut)}
@@ -139,7 +150,7 @@ body.home footer a{color:#B9BEDB}
 .rv.pop{transform:translateY(60px) scale(.94)}
 .rv.pop.in{transform:none}
 .par{will-change:transform;transform:translate3d(0,var(--py,0px),0)}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv,.rv.pop{opacity:1;transform:none;transition:none}.par{transform:none!important}.progress{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv,.rv.pop{opacity:1;transform:none;transition:none}.par{transform:none!important}.progress{display:none}.pill2:hover{transform:none}}
 </style>
 </head>
 <body class="home">
@@ -202,12 +213,12 @@ body.home footer a{color:#B9BEDB}
   <div class="center"><p class="eyebrow rv">Safe by design</p><h2 class="big rv" style="--d:.06s">A gentle place <em>to belong.</em></h2>
   <p class="lead rv" style="--d:.12s">People share vulnerable things here, so safety isn't an afterthought.</p></div>
   <div class="cards">
-    <div class="cd rv" style="--d:.03s"><div class="ico">&#x1F50D;</div><b>Checked before it appears</b><span>Every prayer is screened automatically, and anything sensitive is reviewed by a person.</span></div>
-    <div class="cd rv" style="--d:.09s"><div class="ico">&#x1F6E1;&#xFE0F;</div><b>Report and block</b><span>Every prayer has both, and blocking hides someone immediately without telling them.</span></div>
-    <div class="cd rv" style="--d:.15s"><div class="ico">&#x1F464;</div><b>Anonymous on the globe</b><span>Public prayers never carry a name, and only your general region is ever shown.</span></div>
-    <div class="cd rv" style="--d:.21s"><div class="ico">&#x270F;&#xFE0F;</div><b>Yours to change</b><span>Edit or delete anything you post, any time. Prayers also fade after 30 days.</span></div>
-    <div class="cd rv" style="--d:.27s"><div class="ico">&#x1F5D1;&#xFE0F;</div><b>Delete your account</b><span>One tap inside the app removes your account and everything you posted.</span></div>
-    <div class="cd rv" style="--d:.33s"><div class="ico">&#x1F54A;&#xFE0F;</div><b>No ads. No tracking.</b><span>Lumen is free and non-commercial, with no analytics and no advertising.</span></div>
+    <div class="cd rv" style="--d:.03s"><div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/><path d="M8.3 11.2l1.8 1.8 3.6-3.7"/></svg></div><b>Checked before it appears</b><span>Every prayer is screened automatically, and anything sensitive is reviewed by a person.</span></div>
+    <div class="cd rv" style="--d:.09s"><div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6z"/></svg></div><b>Report and block</b><span>Every prayer has both, and blocking hides someone immediately without telling them.</span></div>
+    <div class="cd rv" style="--d:.15s"><div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></div><b>Anonymous on the globe</b><span>Public prayers never carry a name, and only your general region is ever shown.</span></div>
+    <div class="cd rv" style="--d:.21s"><div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div><b>Yours to change</b><span>Edit or delete anything you post, any time. Prayers also fade after 30 days.</span></div>
+    <div class="cd rv" style="--d:.27s"><div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/><path d="M10 11v5M14 11v5"/></svg></div><b>Delete your account</b><span>One tap inside the app removes your account and everything you posted.</span></div>
+    <div class="cd rv" style="--d:.33s"><div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg></div><b>No ads. No tracking.</b><span>Lumen is free and non-commercial, with no analytics and no advertising.</span></div>
   </div>
   <p class="center rv" style="margin-top:34px;color:#5C6178;font-size:16px">Read the <a href="privacy.html" style="color:#A4442A">Privacy Policy</a> and <a href="terms.html" style="color:#A4442A">Terms of Use</a>.</p>
 </div></section>
