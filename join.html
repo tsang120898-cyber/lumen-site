@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Join a prayer group on Lumen</title>
+<meta name="description" content="You&#x27;ve been invited to a private prayer group on Lumen.">
+<meta name="color-scheme" content="light dark">
+<style>
+:root{--bg:#F7F3EA;--fg:#1E2233;--muted:#5C6178;--accent:#3D52D5;--card:#FFFFFF;--line:#E3DDCF;--hero:#0B1026;--herofg:#F3F0E8;--gold:#FFD166}
+@media(prefers-color-scheme:dark){:root{--bg:#0B1026;--fg:#ECE9F2;--muted:#A9AEC9;--accent:#FFD166;--card:#151B3A;--line:#2A3266;--hero:#0B1026;--herofg:#F3F0E8;--gold:#FFD166}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+header.site{border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font:600 22px/1 "Iowan Old Style",Georgia,serif;color:var(--fg);text-decoration:none;letter-spacing:.2px}
+.brand span{color:var(--gold)}
+nav a{margin-left:18px;font-size:15px;text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--fg)}
+main{padding:36px 0 64px}
+h1,h2,h3{font-family:"Iowan Old Style",Georgia,serif;line-height:1.25}
+h1{font-size:34px;margin:0 0 6px}h2{font-size:23px;margin:2.1em 0 .4em}h3{font-size:19px}
+p,li{color:var(--fg)}ul{padding-left:1.2em}li{margin:.35em 0}
+code{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:.9em}
+.hero{background:var(--hero);color:var(--herofg);padding:72px 0 64px;text-align:left}
+.hero h1{font-size:44px;color:var(--herofg)}
+.hero p{color:#C9CDE6;font-size:19px;max-width:34em}
+.pill{display:inline-block;margin-top:18px;padding:12px 22px;border-radius:999px;background:var(--gold);color:#0B1026;font-weight:700;text-decoration:none}
+.pill.off{background:transparent;border:1px solid #3B4478;color:#C9CDE6;font-weight:600}
+.grid{display:grid;gap:14px;margin:26px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.card h3{margin:0 0 4px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:16px}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:14px}
+footer a{color:var(--muted);margin-right:16px}
+.meta{color:var(--muted);font-size:15px}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="brand" href="index.html">Lumen<span>.</span></a><nav><a href="index.html">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></div></header>
+
+<main><div class="wrap">
+
+<h1>You're invited to a prayer group</h1>
+<p class="meta">Someone has invited you to pray together in a private group on Lumen, a free spiritual community.</p>
+<div id="ok" hidden>
+<p><a class="pill" id="open" href="#">Open in Lumen</a></p>
+<h2>Don't have Lumen yet?</h2>
+<ol>
+<li><a href="https://apps.apple.com/app/id6815755960">Get Lumen on the App Store</a>. It's free.</li>
+<li>Come back to this page and tap <strong>Open in Lumen</strong>.</li>
+<li>Sign up, tell us your name, and you'll join the group straight away.</li>
+</ol>
+</div>
+<p id="bad" hidden>This invite link looks incomplete. Ask whoever sent it to share it again from the group in Lumen.</p>
+<p class="meta">Only the group's members can see its prayers. You can leave a group any time.</p>
+<script>
+(function () {
+  var code = (location.hash || "").replace(/^#/, "").trim().toUpperCase();
+  if (/^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{12}$/.test(code)) {
+    document.getElementById("open").href = "lumen://join-group/" + code;
+    document.getElementById("ok").hidden = false;
+  } else {
+    document.getElementById("bad").hidden = false;
+  }
+})();
+</script>
+
+</div></main>
+<footer><div class="wrap"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="support.html">Support</a><br><br>Lumen: For the Far Away. A free, non-commercial spiritual community. Contact: <a href="mailto:lumentheapp@gmail.com">lumentheapp@gmail.com</a></div></footer>
+</body>
+</html>
